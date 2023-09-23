@@ -1,7 +1,15 @@
+import HeroSection from "./components/HeroSection"
+import Todos from "./components/Todos/Todos"
+import TrandingTodoSlide from "./components/TrandingTodoSlide"
+import TacTok from "./TacTokGame/TacTok"
+
 export default function page() {
   return (
     <div>
-      <h1>Hello world</h1>
+      <HeroSection />
+      <TrandingTodoSlide />
+      <Todos />
+      <TacTok />
     </div>
   )
 }

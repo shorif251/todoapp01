@@ -1,0 +1,8 @@
+This is a todo app called smart todo app is created by Syed Yousuf Abdullah.
+# Follwing features have to add into this app
+* It will be a simple app with three pages Home, About, Enterence(Sign in)
+* Users can make crud operation but gests can make GET request
+* Tranding todos will be featured on home page(based on backend logic)
+* The app have to be a responsive
+* The admin only can enter to Dashboard
+*

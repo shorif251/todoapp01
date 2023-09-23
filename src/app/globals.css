@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -14,14 +14,39 @@
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
+} */
+
+.btnTailwindClasses {
+  @apply ring-1 ring-green-600 rounded-sm px-2 py-1 cursor-pointer hover:text-green-400 transition-all text-emerald-950 bg-blue-400;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.formShowingStyle {
+  @apply mx-auto p-3 md:max-w-lg max-w-md shadow shadow-black;
+}
+
+/* own css class */
+
+.CardItems {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+.gameBoxStyle {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+/* slide todo app */
+.slide-main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+}
+
+.sliderCard {
+  width: 200px;
+  height: 100px;
 }
