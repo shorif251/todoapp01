@@ -19,7 +19,6 @@ export default function UserRegestration({formTitle, url}) {
 
   const formSubmit = async(e) =>{
     e.preventDefault();
-    console.log(data);
 
     const res = await fetch(url,{
         method: "POST",

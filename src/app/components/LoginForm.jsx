@@ -18,7 +18,6 @@ export default function LoginForm({formTitle}) {
 
     const formSubmit = (e) =>{
         e.preventDefault();
-        console.log(data);
     }
 
 
