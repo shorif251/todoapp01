@@ -1,4 +1,4 @@
-import Comments from "../Comment"
+import Comments from "../comments/Comment"
 import Like from "../Like"
 export default function Todo({id, name, title, desc}) {
   return (
