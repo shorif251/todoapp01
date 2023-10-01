@@ -1,7 +1,6 @@
 import HeroSection from "./components/HeroSection"
 import Todos from "./components/Todos/Todos"
 import TrandingTodoSlide from "./components/TrandingTodoSlide"
-import TacTok from "./TacTokGame/TacTok"
 
 export default function page() {
   return (
@@ -9,7 +8,7 @@ export default function page() {
       <HeroSection />
       <TrandingTodoSlide />
       <Todos />
-      <TacTok />
+      {/* <TacTok /> */}
     </div>
   )
 }

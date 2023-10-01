@@ -1,7 +1,7 @@
 import "../../globals.css";
 import Todo from "./Todo";
 const GetTodos = async()=>{
-    let res = await fetch("http://127.0.0.1:3000/api/todosApi");
+    let res = await fetch("http://127.0.0.1:3000/api/todosApi",{ next: { revalidate: 1800 } });
     res = await res.json();
     const resData = res;
     return resData; 
