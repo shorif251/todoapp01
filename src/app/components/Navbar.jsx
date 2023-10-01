@@ -4,13 +4,10 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 export default function Navbar() {
   const pathname = usePathname();
-  console.log("path= "+ pathname)
-
 
   const navItemStyles = "hover:border-b-2 hover:text-green-400 pb-2 transition-all border-green-100 rounded-xl "
   
   const isActive = (active) =>{
-    console.log(active)
      return pathname === active ? `${navItemStyles} text-green-800`: navItemStyles;
   }
   

@@ -8,7 +8,6 @@ const GetTodos = async()=>{
 }
 export default async function Todos() {
     const TodosData = await GetTodos();
-    console.log(TodosData)
     const listedTodo = TodosData.success? TodosData.result.map((value)=>{
         const {_id, name, title, desc} = value;
         return(
