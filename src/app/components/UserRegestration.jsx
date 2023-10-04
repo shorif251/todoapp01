@@ -1,6 +1,6 @@
 "use client" ;
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Input from "./Input";
 export default function UserRegestration({formTitle, url}) {
   const [data, setData] = useState({
@@ -9,6 +9,7 @@ export default function UserRegestration({formTitle, url}) {
     email: "",
     password: "",
   })
+  const [isLoading, setIsLoading] = useState(false);
   const [dataResponse, setDataResponse] = useState(null);
 
   const {frname, lsname, email, password} = data;
@@ -19,28 +20,45 @@ export default function UserRegestration({formTitle, url}) {
 
   const formSubmit = async(e) =>{
     e.preventDefault();
+    setIsLoading(true);
+    try{
+        const res = await fetch(url,{
+            method: "POST",
+            body: JSON.stringify({
+                frname,
+                lsname,
+                email,
+                password,
+            }),
+        })
+        const resData = await res.json();
+        setDataResponse(resData.success); 
+        if(resData.success){
+            setData({
+                frname: "",
+                lsname: "",
+                email: "",
+                password: "",
+                
+            })
+            setIsLoading(false);
+        }
+    }catch(err){
+        console.log(err)
+        setIsLoading(false);
 
-    const res = await fetch(url,{
-        method: "POST",
-        body: JSON.stringify({
-            frname,
-            lsname,
-            email,
-            password,
-        }),
-    })
-    const resData = await res.json();
-    setDataResponse(resData);  
+    }
 
-    setData({
-        frname: "",
-        lsname: "",
-        email: "",
-        password: "",
-        
-    })
   }
+  useEffect(()=>{
+    console.log(dataResponse)
+      console.log(isLoading);
 
+  },[isLoading,dataResponse])
+
+  
+
+  
     return (
         <form className="formShowingStyle" action="" onSubmit={formSubmit}>
             <h1>{formTitle}</h1>
@@ -61,7 +79,7 @@ export default function UserRegestration({formTitle, url}) {
             </div>
            
             <div className="my-5 flex justify-center">
-                <input className="btnTailwindClasses" style={{width:"100%"}}  type="submit" value="Sign Up"  />
+                <input className="btnTailwindClasses" style={{width:"100%"}}  type="submit" value={isLoading? "Loading..." : "Sign Up"} disabled={isLoading? true : false} />
             </div>
         </form>
     )
